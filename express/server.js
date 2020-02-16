@@ -34,6 +34,26 @@ router.get('/meals', (req, res) => res.json({
   ]
 }));
 
+router.get('/desserts', (req, res) => res.json({
+  data: [
+    {
+      name: "cupcake",
+      picture: "🧁",
+      price: "$1.50"
+    },
+    {
+      name: "chocolate",
+      picture: "🍫",
+      price: "$1.50"
+    },
+    {
+      name: "custard",
+      picture: "🍮",
+      price: "$3.50"
+    }
+  ]
+}));
+
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 app.use(cors());
