@@ -34,6 +34,41 @@ router.get('/meals', (req, res) => res.json({
   ]
 }));
 
+router.get('/foods/meals', (req, res) => res.json({
+  data: [
+    {
+      name: "burger",
+      picture: "🍔",
+      price: "$4.50"
+    },
+    {
+      name: "pizza",
+      picture: "🍕",
+      price: "$2.50"
+    },
+    {
+      name: "ramen",
+      picture: "🍜",
+      price: "$5.50"
+    },
+    {
+      name: "chicken",
+      picture: "🍗",
+      price: "$6.50"
+    },
+    {
+      name: "sandwich",
+      picture: "🥪",
+      price: "$4.50"
+    },
+    {
+      name: "bento",
+      picture: "🍱",
+      price: "$11.50"
+    }
+  ]
+}));
+
 router.get('/desserts', (req, res) => res.json({
   data: [
     {
@@ -50,6 +85,43 @@ router.get('/desserts', (req, res) => res.json({
       name: "custard",
       picture: "🍮",
       price: "$3.50"
+    }
+  ]
+}));
+
+router.get('/foods/desserts', (req, res) => res.json({
+  data: [
+    {
+      name: "cupcake",
+      picture: "🧁",
+      price: "$1.50"
+    },
+    {
+      name: "chocolate",
+      picture: "🍫",
+      price: "$1.50"
+    },
+    {
+      name: "custard",
+      picture: "🍮",
+      price: "$3.50"
+    },
+    {
+      name: "donut",
+      picture: "🍩",
+      price: "$1.50",
+      withCoffee: true
+    },
+    {
+      name: "ice cream",
+      picture: "🍦",
+      price: "$1.00"
+    },
+    {
+      name: "cake",
+      picture: "🍰",
+      price: "$2.50",
+      withCoffee: true
     }
   ]
 }));
