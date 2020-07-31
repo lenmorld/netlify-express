@@ -1,3 +1,15 @@
+## Build lambda
+
+```
+$ npm run netlify-lambda build express
+```
+
+## Dev on localhost:3000
+
+```
+$ npm start
+```
+
 # Express.js on Netlify Example
 
 [![Deploy to

@@ -1,19 +1,17 @@
-// import config file
-// const config = require('./config');
 
 // mongodb driver
 const MongoClient = require("mongodb").MongoClient;
 
-// if (!config.mongo_db_connection_string) {
-//   throw Error("⚠ ⚠ ⚠ Put connection string from MongoDB Atlas in .env file ⚠ ⚠ ⚠")
-// }
+const dotenv = require('dotenv');
+dotenv.config();
+
+console.log(process.env.MONGO_DB_CONNECTION_STRING)
 
 class DbConnection {
   constructor() {
     this.db = null;
     this.dbName = "studify";
-    // this.url = process.env.MONGO_DB_CONNECTION_STRING;
-    this.url = "mongodb+srv://user3:abcd1234@cluster0-gsnef.mongodb.net/studify?retryWrites=true&w=majority";
+    this.url = process.env.MONGO_DB_CONNECTION_STRING;
     this.options = {
       useNewUrlParser: true,
       useUnifiedTopology: true
