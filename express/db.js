@@ -45,6 +45,7 @@ class DbConnection {
       return new Promise((resolve, reject) => {
         MongoClient.connect(this.url, this.options, (err, dbInstance) => {
           if (err) {
+            console.log("promise reject")
             console.log(`[MongoDB connection] ERROR: ${err}`);
             // failureCallback(err); // caught by the calling function
             reject(err);
@@ -68,6 +69,7 @@ class DbConnection {
       try {
         dbObject = await this.connectWithPromise();
       } catch (db_error) {
+        console.log("async-await catch")
         throw db_error;
       }
 

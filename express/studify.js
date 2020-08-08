@@ -8,7 +8,6 @@ const cors = require('cors');
 // db setup
 const DbConnection = require('./db');
 
-
 router.use(body_parser.json())
 
 const getTimeStamp = () => {
@@ -26,12 +25,34 @@ const samples = [
     id: 2, question: `When would you use the document's \`load\` event?`, answer: `The \`load\` event fires at the end of the document loading process when all of the objects, images, scripts, and links are loaded.
     <br/>
   It is used to delay the execution of a program until all necessary resources are ready.` },
+  {
+    id: 3,
+    question: 'wa3',
+    answer: 'wa3',
+  },
+  {
+    id: 4,
+    question: 'wa4',
+    answer: 'wa4',
+  },
+  {
+    id: 5,
+    question: 'wa5',
+    answer: 'wa5',
+  }
 ]
 
 router.get('/cards', async (req, res) => {
   // res.json(samples)
-  const dbCollection = await DbConnection.getCollection("cards");
-  const cards = await dbCollection.find().toArray();
+  let cards;
+  try {
+    const dbCollection = await DbConnection.getCollection("cards");
+    cards = await dbCollection.find().toArray();
+  } catch (e) {
+    // cannot connect to DB
+    cards = samples;
+  }
+
   res.json(cards)
 })
 
