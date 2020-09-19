@@ -8,7 +8,6 @@ const cors = require('cors');
 const DbConnection = require('./db');
 
 router.use(cors());
-
 router.use(body_parser.json())
 
 const getTimeStamp = () => {
