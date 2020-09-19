@@ -214,6 +214,7 @@ router.post('/', (req, res) => res.json({ postBody: req.body }));
 // use studify routes
 router.use("/", studify);
 
+router.use(cors());
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
