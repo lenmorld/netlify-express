@@ -4,7 +4,7 @@ const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
 
-const cors = require('cors');
+// const cors = require('cors');
 
 const router = express.Router();
 
@@ -214,8 +214,21 @@ router.post('/', (req, res) => res.json({ postBody: req.body }));
 // use studify routes
 router.use("/", studify);
 
-router.use(cors());
-app.use(cors());
+// router.use(cors());
+// app.use(cors());
+
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 
