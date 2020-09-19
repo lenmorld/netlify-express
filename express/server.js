@@ -21,7 +21,7 @@ const react_workshop = require('./react_workshop')
 router.use("/", react_workshop);
 
 // use studify routes
-router.use("/", studify);
+// router.use("/", studify);
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 

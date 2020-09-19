@@ -198,6 +198,6 @@ router.get('/foods/all', (req, res) => res.json({
   ]
 }));
 
-router.post('/', (req, res) => res.json({ postBody: req.body }));
+// router.post('/foods', (req, res) => res.json({ postBody: req.body }));
 
 module.exports = router;
